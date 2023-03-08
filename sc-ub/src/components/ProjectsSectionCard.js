@@ -6,9 +6,14 @@ const ProjectsSectionCard = (props) => {
     <React.Fragment>
       {props.items.map((dane) => {
         return (
-          <div key={dane.key}>
-            <div>{dane.nazwa}</div>
-            <div>{dane.opis}</div>
+          <div className={classes.col1of2}>
+            <div key={dane.key} className={classes.card}>
+              <div className={`${classes.card__side} ${classes.card__side__front}`}>
+                <div className={classes.card__front_icon}>{dane.img}</div>
+                <div className={classes.card__front_name}>{dane.nazwa}</div>
+              </div>
+              <div className={`${classes.card__side} ${classes.card__side__back}`}>{dane.opis}</div>
+            </div>
           </div>
         );
       })}

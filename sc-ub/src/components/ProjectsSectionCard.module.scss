@@ -1,5 +1,105 @@
-.color {
-    background-color: yellow;
-    width: 20px;
-    height: 20px;
+// .card {
+//   position: relative;
+//   perspective: 150rem;
+//   height: 52rem;
+
+//   &__side {
+//     box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 15%);
+//     transition: all 0.8s easy;
+//     backface-visibility: hidden;
+//     height: 52rem;
+//     min-width: 80rem;
+
+//     &__front {
+//       background-image: linear-gradient(
+//         164deg,
+//         rgba(255, 255, 255, 1) 40%,
+//         rgba(74, 144, 226, 1)
+//       );
+//       text-align: center;
+//       margin: 0;
+//       max-width: 30rem;
+//       height: 100%;
+
+//       &_name {
+//         font-size: 3rem;
+//         margin-top: 16rem;
+//         height: 43%;
+//         display: flex;
+//         align-items: center;
+//       }
+//     }
+
+//     &__back {
+//       background-color: red;
+//       margin: 0;
+//       position: absolute;
+//       max-width: 30rem;
+//       height: 102%;
+//       top: 0;
+//       left: 0;
+//       transform: rotateY(180deg);
+//     }
+
+//     &:hover &_front {
+//       transform: rotateY(-180deg);
+//     }
+
+//     &:hover &_back {
+//       transform: rotateY(0);
+//       opacity: 1;
+//     }
+//   }
+// }
+
+.card {
+  perspective: 150rem;
+  position: relative;
+  height: 48rem;
+  margin-left: -15rem;
+
+  &__side {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 48rem;
+    transition: all 0.8s ease;
+    position: absolute;
+    width: 30rem;
+    padding: 1rem;
+    border-radius: 3px;
+
+    backface-visibility: hidden;
+    overflow: hidden;
+    box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 15%);
+
+    &__front {
+      background-image: linear-gradient(
+        164deg,
+        rgba(255, 255, 255, 1) 40%,
+        rgba(74, 144, 226, 1)
+      );
+      text-align: center;
+      margin: 0;
+    }
+
+    &__back {
+      background-color: red;
+      margin: 0;
+      position: absolute;
+      max-width: 30rem;
+      height: 100%;
+      top: 0;
+      left: 0;
+      transform: rotateY(180deg);
+    }
+  }
+
+  &:hover &__side__front {
+    transform: rotateY(-180deg);
+  }
+
+  &:hover &__side__back {
+    transform: rotateY(0);
+  }
 }
