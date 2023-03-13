@@ -5,7 +5,7 @@ import ProjectsSectionCard from "./ProjectsSectionCard";
 const sections = [
   {
     nazwa: "Sekcja aplikacji webowych, desktopowych i mobilnych",
-    opis: "Ta sekcja zajmuje się budowanie aplikacji webowych, desptopowych i mobilnych.",
+    opis: "W tej sekcji możesz wzią udział w projektach które skupiają się na tworzeniu stron internetowych. Powstają tutaj także aplikacje użyteczne użytkownika jak i aplikacje mobilne.",
     key: Math.random(),
     img: (
       <img
@@ -13,10 +13,19 @@ const sections = [
         src="https://img.icons8.com/ios/50/null/programming.png"
       />
     ),
+    technologie: "Głowne technologie w tej sekcji: ",
+    wykaz: (
+      <ul>
+        <li>React</li>
+        <li>Vue</li>
+        <li>C#</li>
+        <li>SCSS</li>
+      </ul>
+    ),
   },
   {
     nazwa: "Sekcja game DEV",
-    opis: "Ta sekcja zamuje się tworzeniem gier, aplikacji blenderowych ipt.",
+    opis: "Nauczysz się tu tworzyć gry 2D jak i 3D. Możesz także tworzyć różnego rodzaju aplikacje np.: blendery graficzne.",
     key: Math.random(),
     img: (
       <img
@@ -24,16 +33,33 @@ const sections = [
         src="https://img.icons8.com/ios/50/null/xbox-controller.png"
       />
     ),
+    technologie: "Głowne technologie w tej sekcji: ",
+    wykaz: (
+      <ul>
+        <li>C++</li>
+        <li>C#</li>
+        <li>Python</li>
+      </ul>
+    ),
   },
   {
-    nazwa: "Sekcja drukarek 3D i retro",
-    opis: "Uczymy się tu druku 3D, starych systemów operacyjnych itp.",
+    nazwa: "Sekcja drukarek 3D i elektroniki",
+    opis: "Nauczysz się tu druku 3D. Tworzymy tutaj też projekty elektroniczne. Możesz samodzielnie stworzyć funkcjonalnego robota lub nawet mobilny dom!",
     key: Math.random(),
     img: (
       <img
         className={classes.smallImage}
         src="https://img.icons8.com/ios/50/null/print--v1.png"
       />
+    ),
+    technologie: "Głowne technologie w tej sekcji: ",
+    wykaz: (
+      <ul>
+        <li>C</li>
+        <li>C++</li>
+        <li>Raspberry Pi</li>
+        <li>Arduino</li>
+      </ul>
     ),
   },
 ];

@@ -11,8 +11,11 @@ const ProjectsSectionCard = (props) => {
               <div className={`${classes.card__side} ${classes.card__side__front}`}>
                 <div className={classes.card__front_icon}>{dane.img}</div>
                 <div className={classes.card__front_name}>{dane.nazwa}</div>
+                <div className={classes.card__front_desription}>{dane.opis}</div>
+                <div className={classes.card__front_tech}>{dane.technologie}</div>
+                <div className={classes.card__front_lista}>{dane.wykaz}</div>
               </div>
-              <div className={`${classes.card__side} ${classes.card__side__back}`}>{dane.opis}</div>
+              <div className={`${classes.card__side} ${classes.card__side__back}`}></div>
             </div>
           </div>
         );
