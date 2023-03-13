@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+      .container {
+          margin: auto;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-content: center;
+          padding: 20px;
+          width: 300px;
+      }
+
+      .container div {
+          padding: 5px;
+      }
+
+      .form label {
+          font-size: 20px;
+          line-height: 20px;
+      }
+
+      .login-input-group,
+      .password-input-group {
+          display: flex;
+          align-items: center;
+      }
+
+      .login-input-group > label,
+      .password-input-group > label {
+          flex-grow: 1;
+      }
+
+      .form label {
+          margin-right: 10px;
+      }
+
+      .form input[type="text"],
+      .form input[type="password"] {
+          border: 2px solid grey;
+          border-radius: 2px;
+          line-height: 20px;
+          font-size: 20px;
+      }
+
+      .form input[type="button"] {
+          position: relative;
+          background-color: #4caf50;
+          border: none;
+          font-size: 20px;
+          color: #ffffff;
+          padding: 5px;
+          width: 200px;
+          text-align: center;
+          transition-duration: 0.4s;
+          text-decoration: none;
+          overflow: hidden;
+          cursor: pointer;
+      }
+
+      .form input[type="button"]:hover {
+          background-color: #05cc0f;
+      }
+
+      .button-container {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+  </style>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+    <script type="text/babel">
+      const rootElement = document.getElementById("root");
+  
+      const Button = (props) => {
+          const {text, onClick} = props;
+          return <div className="button-container">
+              <input type="button" value={text} onClick={onClick}/>
+          </div>
+      }
+  
+      class TextInput extends React.Component {
+          render() {
+              const {label, value, onChange} = this.props;
+  
+              return <div className="login-input-group">
+                  <label htmlFor="login">{label}</label>
+                  <input id="login" type="text" aria-label="Login" value={value} onChange={onChange}/>
+              </div>
+          }
+      }
+  
+      const PasswordInput = (props) => {
+          const {label, value, onChange} = props;
+          return  <div className="password-input-group">
+              <label htmlFor="password">{label}</label>
+              <input id="password" type="password" aria-label="Password" value={value} onChange={onChange}/>
+          </div>
+      }
+  
+      const App = (props) => {
+          const [formData, setFormData] = React.useState({login: "", password: ""})
+  
+          const onClick = () => {
+              console.log('Przycisk Kliknięty!')
+              console.log('Login: ', formData.login)
+              console.log('Password: ', formData.password)
+          }
+  
+          const onChangeLogin = (e) => {
+              setFormData({...formData, login: e.target.value})
+          }
+  
+          const onChangePassword = (e) => {
+              setFormData({...formData, password: e.target.value})
+          }
+  
+          return <div className="container" >
+              <div className="header" >
+              <h1> Zaloguj się </h1>
+          <hr/>
+          </div>
+          <form className="form">
+              <TextInput label={"Login:"} value={formData.login} onChange={onChangeLogin}/>
+              <PasswordInput label={"Hasło:"} value={formData.password} onChange={onChangePassword} />
+              <Button text="Zaloguj!" onClick={onClick} />
+          </form>
+      </div>
+  
+      }
+  
+      ReactDOM.render(
+          <App/>,
+          rootElement
+      );
+  </script>
+  </body>
+</html>
